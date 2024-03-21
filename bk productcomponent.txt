@@ -1,0 +1,33 @@
+   <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Vista previa</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                {shoppingProducts.map((producto) => (
+                    <tbody>
+                        <tr>
+                            <th scope="row">{producto.title}</th>
+                            <td>{producto.price}</td>
+                            <td>{producto.thumbnail_id}</td>
+                            <td><a href="#">Eliminar</a></td>
+                        </tr>
+                     
+                    </tbody>
+                ))}
+
+            </table>
+
+<BrowserRouter>
+      <NavBarComponent cantArticulos={cont}/>
+      
+        <Routes>
+          <Route exact path='/' element={<HomeComponent />} />
+          <Route exact path='/products/:catId' element={<ProductsComponent agregar={agregar} />} />
+          <Route exact path='/product/:prodId/:catId' element={<SingleProduct />} />
+          <Route exact path='/contact' element={<ContactComponent />} />
+        </Routes>
+      </BrowserRouter>
